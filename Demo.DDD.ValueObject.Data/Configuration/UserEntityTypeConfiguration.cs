@@ -30,6 +30,13 @@ namespace Sample.Mutable.Process.Infrastructure.Database.Configuration
                     convertToProviderExpression: v => v.Value,
                     convertFromProviderExpression: v => UserName.Parse(v)))
                 .IsUnicode();
+
+            builder
+                .Property(propertyExpression: j => j.BudApiMetadata)
+                .HasConversion(converter: new ValueConverter<BudApiMetadata, string>(
+                    convertToProviderExpression: v => v.ToString(),
+                    convertFromProviderExpression: v => BudApiMetadata.Parse(v)))
+                .IsUnicode();
         }
     }
 }

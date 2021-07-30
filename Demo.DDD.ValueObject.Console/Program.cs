@@ -40,7 +40,7 @@ namespace Demo.DDD.ValueObject
 
         private static async Task AddSamples(DemoContext demoContext)
         {
-            await demoContext.AddAsync(entity: new User(firstName: "John", lastName: "Doe", userName: "john.doe"));
+            await demoContext.AddAsync(entity: new User(firstName: "John", lastName: "Doe", userName: "john.doe", budApiMetadata: BudApiMetadata.Parse(rawValue: "UserId123:12345")));
             await demoContext.SaveChangesAsync();
         }
 
